@@ -19,6 +19,7 @@
 *** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
+
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
@@ -72,9 +73,9 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-porn-cli is a Commandline Tool to watch and download shows and movies.
+porn-cli is a Commandline Tool to watch and download pornos.
 
-Shows and Movies are scraped from Streaming Sites.
+Pornos are scraped from Porn Sites.
 
 porn-cli currently scrapes 4 Providers:
 ```
@@ -137,7 +138,7 @@ This project is to be used at the user’s own risk, based on their government a
 
 This project has no control on the content it is serving, using copyrighted content from the providers is not going to be accounted for by the developer. It is the user’s own risk.
 
-[More on That](https://github.com/mov-cli/porn-cli/blob/v3/disclaimer.org)
+[More on That](https://github.com/mov-cli/porn-cli/blob/main/disclaimer.org)
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- Feature -->
@@ -179,6 +180,9 @@ Author: Poseidon444 | ```Discord: P A I N 4 4 4#4736```
 Maintainer: R3tr0Ananas | ```Discord: </Ananas>#1000```
 
 Project Link: [https://github.com/mov-cli/porn-cli](https://github.com/mov-cli/porn-cli)
+
+This entre code is based from [mov-cli](https://github.com/mov-cli/mov-cli)
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
