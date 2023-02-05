@@ -69,10 +69,6 @@
   </ol>
 </details>
 
-
-## Preview
-https://user-images.githubusercontent.com/83706294/212223865-44ff52f4-359c-4df2-b71c-91b35f7fc85e.mov
-
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
