@@ -8,12 +8,6 @@ class pornhub(WebScraper):
         self.base_url = base_url
     
     def search(self, q: str):
-        print("[!] Warning: This Provider contains Porn\r\n")
-        goon = input("Continue? [y/n]: ")
-        if goon == "y":
-            pass
-        else:
-            return movcli.movcli()
         q = (
             input("[!] Please Enter the name of the Porn: ")
             if q is None
@@ -24,8 +18,6 @@ class pornhub(WebScraper):
     def results(self, data: str) -> list:
         req = self.client.get(f"{self.base_url}/video/search?search={data}")
         soup = BS(req, "lxml")
-        with open("test.html", "w", encoding="utf-8") as F:
-            F.write(soup.prettify())
         items = soup.findAll("li", {"class": "pcVideoListItem"})
         urls = [items[i].find("a")["href"] for i in range(len(items))]
         title = [items[i].find("div", {"class": "usernameWrap"}).find("a").text + " | " + items[i].find("a")["title"] + " | " for i in range(len(items))]

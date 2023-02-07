@@ -9,7 +9,7 @@ long_description = (this_directory / "README.md").read_text()
 
 setup(
     name="porn-cli",
-    version="1.0.0",
+    version="1.0.1",
     author="pain@poseidon444",
     author_email="painedposeidon444@gmail.com",
     maintainer="ananas@r3tr0ananas",

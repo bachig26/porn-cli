@@ -10,12 +10,6 @@ class hentaimama(WebScraper):
         self.base_url = base_url
 
     def search(self, q: str):
-        print("[!] Warning: This Provider contains Porn")
-        goon = input("Are you Sure that you want to continue [y/n]: ")
-        if goon == "y":
-            pass
-        else:
-            return movcli.movcli()
         q = (
             input("[!] Please Enter the name of the Porn: ")
             if q is None

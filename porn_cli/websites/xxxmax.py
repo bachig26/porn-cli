@@ -31,7 +31,11 @@ class xxxmax(WebScraper):
         req = self.client.get(url).text
         soup = BS(req, "lxml")
         items = soup.find("div", {"class": "responsive-player"})
-        iframe = items.find("iframe")["src"]
+        try:
+            iframe = items.find("iframe")["src"]
+        except AttributeError as e:
+            print(f"Couldn't find the iframe | {e}")
+            return exit(0)
         encrypted = re.findall('q=(.*)', iframe)[0]
         decrypted = unquote(str(b64decode(encrypted)))
         url = re.findall('src="(.*?)"', decrypted)[0]
