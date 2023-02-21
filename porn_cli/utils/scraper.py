@@ -40,33 +40,29 @@ class WebScraper:
         return re.sub(r"\W+", "-", txt.lower())
 
     def dl(
-        self, url: str, name: str, subtitle: str = None, season = "", episode = None
+        self, url: str, name: str, subtitle: str = None, season = "", episode = None, referrer: str = None
     ):
         name = self.parse(name)
         fixname = re.sub(r"-+", " ", name)
-        if episode is None:
-            fixname = f"{fixname}"
+        if episode:
+            fixname = f"{fixname} S{season}E{episode}"
+        
+        if referrer:
+            referrer = referrer
         else:
-            fixname = f"{fixname}S{season}E{episode}"
-
+            referrer = self.base_url
         # args = shlex.split(f 'ffmpeg -i "{url}" -c copy {self.parse(name)}.mp4')
         args = [
         'ffmpeg',
-        '-n', 
+        '-n',
         '-thread_queue_size',
         '4096',
-        '-err_detect',
-        'ignore_err',
+        f'-headers',
+        f'Referer: {referrer}',
         '-i', 
         f'{url}',
-        "-user_agent",
-        '"Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:105.0) Gecko/20100101 Firefox/105.0"',
-        "-referer",
-        f"{self.base_url}",
         '-c', 
         'copy',
-        '-preset',
-        'ultrafast',
         f'{fixname}.mp4'
         ]
 
@@ -90,7 +86,7 @@ class WebScraper:
                 vlc_process = Vlc(self).play(url, referrer, name)
                 vlc_process.wait()
         except Exception as e:
-            txt = f"'[!]' Could not play {name}: MPV not found | {e}"
+            txt = f"{self.red('[!]')} Could not play {name}: MPV not found | {e}"
             logging.log(logging.ERROR, txt)
             # print(txt)  # TODO implement logging to a file
             sys.exit(1)
@@ -117,7 +113,7 @@ class WebScraper:
         r = [] 
         for ix, vl in enumerate(result):
             r.append(f"[{ix + 1}] {vl[self.title]} {vl[self.mv_tv]}")
-        r.extend(["[q] Exit!","[s] Search Again!","[d] Download!","[p] Switch Provider!","[sd] Download Whole Show!"])
+        r.extend(["","[q] Exit!","[s] Search Again!","[d] Download!","[p] Switch Provider!","[sd] Download Whole Show!","[ds] Download Season!"])
         r = r[::-1]
         choice = ""
         while choice not in range(len(result) + 1):
@@ -160,10 +156,33 @@ class WebScraper:
                     if mov_or_tv[self.mv_tv] == "TV":
                         self.TV_PandDP(mov_or_tv, "sd")
                     else:
-                        self.MOV_PandDP(mov_or_tv, "sd")
+                        print("You selected a Movie")
+                        exit(0)
                 except ValueError as e:
                     print(
-                        "[!]  Invalid Choice Entered! | ",
+                        f"[!]  Invalid Choice Entered! | ",
+                        str(e),
+                    )
+                    sys.exit(1)
+                except IndexError as e:
+                    print(
+                        "[!]  This Episode is coming soon! | ",
+                        str(e),
+                    )
+                    sys.exit(2)
+            elif choice == "ds":
+                try:
+                    pre = fzf_prompt(r)
+                    choice = re.findall(r"\[(.*?)\]", pre)[0] if not result_no else result_no
+                    mov_or_tv = result[int(choice) - 1]
+                    if mov_or_tv[self.mv_tv] == "TV":
+                        self.TV_PandDP(mov_or_tv, "ds")
+                    else:
+                        print("You selected a Movie")
+                        exit(0)
+                except ValueError as e:
+                    print(
+                        f"[!]  Invalid Choice Entered! | ",
                         str(e),
                     )
                     sys.exit(1)
