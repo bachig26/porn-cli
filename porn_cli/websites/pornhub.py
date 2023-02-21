@@ -1,6 +1,5 @@
 from bs4 import BeautifulSoup as BS
 from ..utils.scraper import WebScraper
-import mov_cli.__main__ as movcli
 
 class pornhub(WebScraper):
     def __init__(self, base_url):

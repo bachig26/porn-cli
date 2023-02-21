@@ -153,7 +153,7 @@ class WebScraper:
                     pre = fzf_prompt(r)
                     choice = re.findall(r"\[(.*?)\]", pre)[0] if not result_no else result_no
                     mov_or_tv = result[int(choice) - 1]
-                    if mov_or_tv[self.mv_tv] == "TV":
+                    if mov_or_tv[self.mv_tv] == "PORNOS":
                         self.TV_PandDP(mov_or_tv, "sd")
                     else:
                         print("You selected a Movie")
@@ -175,7 +175,7 @@ class WebScraper:
                     pre = fzf_prompt(r)
                     choice = re.findall(r"\[(.*?)\]", pre)[0] if not result_no else result_no
                     mov_or_tv = result[int(choice) - 1]
-                    if mov_or_tv[self.mv_tv] == "TV":
+                    if mov_or_tv[self.mv_tv] == "PORNOS":
                         self.TV_PandDP(mov_or_tv, "ds")
                     else:
                         print("You selected a Movie")
@@ -194,7 +194,7 @@ class WebScraper:
                     sys.exit(2)
             else:
                 mov_or_tv = result[int(choice) - 1]
-                if mov_or_tv[self.mv_tv] == "TV":
+                if mov_or_tv[self.mv_tv] == "PORNOS":
                     self.TV_PandDP(mov_or_tv, "p")
                 else:
                     self.MOV_PandDP(mov_or_tv, "p")

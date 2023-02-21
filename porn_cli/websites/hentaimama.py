@@ -1,7 +1,6 @@
 from ..utils.scraper import WebScraper
 from bs4 import BeautifulSoup as BS
 import re
-import mov_cli.__main__ as movcli
 
 
 class hentaimama(WebScraper):
@@ -31,6 +30,7 @@ class hentaimama(WebScraper):
         req = self.client.get(url).text
         soup = BS(req, "lxml")
         episodes = soup.findAll("article", {"class": "item se episodes"})
+        print(episodes)
         episode = int(self.askepisode(len(episodes)))
         episodes = episodes[::-1]
         url = episodes[episode - 1].find("a")["href"]
@@ -41,8 +41,13 @@ class hentaimama(WebScraper):
         soup = BS(req, "lxml")
         link = soup.find("div", {"id": "option-1"}).find("iframe")["src"]
         q = self.client.get(link).text
-        regex = 'file: "(.*?)"'
-        url = re.findall(regex, q)[0]
+        regex1 = 'file: "(.*?)"'
+        regex2 = 'source src="(.*?)"'
+        try:
+            url = re.findall(regex1, q)[0]
+        except IndexError:
+            url = re.findall(regex2, q)[0]
+        print(url)
         return url
     
     def TV_PandDP(self, t: list, state: str = "d" or "p" or "sd"):

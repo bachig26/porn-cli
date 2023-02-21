@@ -2,7 +2,6 @@ import os
 import sys
 import platform
 
-import click
 from .utils.provider import ask
 from .utils.scraper import WebScraper
 from .websites.hentaimama import hentaimama
