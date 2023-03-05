@@ -75,7 +75,7 @@
 
 porn-cli is a Commandline Tool to watch and download pornos.
 
-Pornos are scraped from Porn Sites.
+Porn are scraped from Porn Sites.
 
 porn-cli currently scrapes 4 Providers:
 ```
