@@ -73,138 +73,18 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-porn-cli is a Commandline Tool to watch and download pornos.
+porn-cli is a addition for [mov-cli](https://github.com/mov-cli/mov-cli).
 
-Porn are scraped from Porn Sites.
-
-porn-cli currently scrapes 4 Providers:
-```
-Hentaimama · JAVCT · XXXMAX · PornHub
-```
 <p align="right">(<a href="#readme-top">back to top</a>)</p
 
 <!-- GETTING STARTED -->
 ## Getting Started
 
-
-
-### Prerequisites
-
-- [`mpv`](https://mpv.io) - Player used for Windows and Linux
-- [`iina`](https://iina.io) - player used for MacOS
-- [`ffmpeg`](https://github.com/FFmpeg/FFmpeg) - For downloads 
-- [`fzf`](https://github.com/junegunn/fzf) - The selection Menu
-
-
-### Installation
-
-- Windows / Linux
-
-  - Choose from Python or Shell:
-
-    Python:
-    ```
-    pip install porn-cli
-    ```
-
-- Android (Only for Python Version)
-  - Make sure [MPV](https://play.google.com/store/apps/details?id=is.xyz.mpv) and [Termux](https://play.google.com/store/apps/details?id=com.termux) from Play Store is installed.
-  
-  - Install ``libxml2`` and ``libxslt`` in Termux.
-    ```
-    apt-get install libxml2 libxslt
-    ```
-
-  - Install ``porn-cli``.
-    ```
-    pip install porn-cli
-    ```
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-<!-- USAGE EXAMPLES -->
-## Usage
-
-Type: ```porn-cli``` into your Commandline.
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-<!-- DISCLAIMER -->
-## Disclaimer
-
-This project is to be used at the user’s own risk, based on their government and laws.
-
-This project has no control on the content it is serving, using copyrighted content from the providers is not going to be accounted for by the developer. It is the user’s own risk.
-
-[More on That](https://github.com/mov-cli/porn-cli/blob/main/disclaimer.org)
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- Feature -->
-## Feature
-
-If you want a feature, create an [issue](https://github.com/mov-cli/porn-cli/issues/new) or create the feature and make a pull request.
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- CONTRIBUTING -->
-## Contributing
-
-
-Pull requests are welcome and _appreciated_. For major changes, please open an issue first to discuss what you would like to change.
-
-Contributors:
-
-<a href = "https://github.com/mov-cli/porn-cli/graphs/contributors">
-  <img src = "https://contrib.rocks/image?repo=mov-cli/porn-cli"/>
-</a>
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-<!-- LICENSE -->
-## License
-
-Distributed under the GPL-3.0 License. See `LICENSE` for more information.
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-<!-- CONTACT -->
-## Contact
-
-Author: Poseidon444 | ```Discord: P A I N 4 4 4#4736```
-
-Maintainer: R3tr0Ananas | ```Discord: </Ananas>#1000```
-
-Project Link: [https://github.com/mov-cli/porn-cli](https://github.com/mov-cli/porn-cli)
-
-This entre code is based from [mov-cli](https://github.com/mov-cli/mov-cli)
-
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-<!-- Inspiration -->
-## Inspiration
-
-Heavily inspired from [ani-cli](https://github.com/pystardust/ani-cli)
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-<!-- MARKDOWN LINKS & IMAGES -->
-<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/mov-cli/porn-cli.svg?style=for-the-badge
-[contributors-url]: https://github.com/mov-cli/porn-cli/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/mov-cli/porn-cli.svg?style=for-the-badge
-[forks-url]: https://github.com/mov-cli/porn-cli/network/members
-[stars-shield]: https://img.shields.io/github/stars/mov-cli/porn-cli.svg?style=for-the-badge
-[stars-url]: https://github.com/mov-cli/porn-cli/stargazers
-[issues-shield]: https://img.shields.io/github/issues/mov-cli/porn-cli.svg?style=for-the-badge
-[issues-url]: https://github.com/mov-cli/porn-cli/issues
-[license-shield]: https://img.shields.io/github/license/mov-cli/porn-cli.svg?style=for-the-badge
-[license-url]: https://github.com/mov-cli/porn-cli/blob/master/LICENSE.txt
+Firstly install [mov-cli](https://github.com/mov-cli/mov-cli)
+```
+pip install mov-cli
+```
+After that you can install porn-cli
+```
+pip install porn-cli
+```
