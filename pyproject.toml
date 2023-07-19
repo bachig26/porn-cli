@@ -2,8 +2,7 @@
 name = "porn-cli"
 version = "1.0.3"
 description = "An ani-cli like cli tool for porn"
-authors = ["Pain <painedposeidon444@gmail.com>"]
-maintainers = ["Ananas <ananas@r3tr0ananas.lol>"]
+authors = ["mov-cli <mov-cli@protonmail.com>"]
 license = "GPLv3"
 readme = "README.md"
 packages = [{include = "porn_cli"}]
