@@ -1,10 +1,11 @@
 from bs4 import BeautifulSoup as BS
-from ..utils.scraper import WebScraper
+from mov_cli.utils.scraper import WebScraper
+from mov_cli.utils.props import SelectedNotAvailable
 import re
 from urllib.parse import unquote
 from base64 import b64decode
 
-class xxxmax(WebScraper):
+class Provider(WebScraper):
     def __init__(self, base_url):
         super().__init__(base_url)
         self.base_url = base_url
@@ -33,9 +34,8 @@ class xxxmax(WebScraper):
         items = soup.find("div", {"class": "responsive-player"})
         try:
             iframe = items.find("iframe")["src"]
-        except AttributeError as e:
-            print(f"Couldn't find the iframe | {e}")
-            return exit(0)
+        except AttributeError:
+            raise SelectedNotAvailable
         encrypted = re.findall('q=(.*)', iframe)[0]
         decrypted = unquote(str(b64decode(encrypted)))
         url = re.findall('src="(.*?)"', decrypted)[0]

@@ -1,9 +1,9 @@
-from ..utils.scraper import WebScraper
+from mov_cli.utils.scraper import WebScraper
 from bs4 import BeautifulSoup as BS
 import re
 
 
-class hentaimama(WebScraper):
+class Provider(WebScraper):
     def __init__(self, base_url):
         super().__init__(base_url)
         self.base_url = base_url
@@ -23,7 +23,7 @@ class hentaimama(WebScraper):
         urls = [items[i].find("a")["href"] for i in range(len(items))]
         title = [items[i].find("img")["alt"] for i in range(len(items))]
         ids = [i for i in range(len(items))]
-        mov_or_tv = ["PORNOS" for i in range(len(items))]
+        mov_or_tv = ["Hentai" for i in range(len(items))]
         return [list(sublist) for sublist in zip(title, urls, ids, mov_or_tv)]
 
     def ask(self, url):
