@@ -31,39 +31,12 @@
     A cli tool to browse and watch porn.
     <br />
     <br />
-    <a href="https://github.com/mov-cli/porn-cli/issues">Report Bug</a>
+    <a href="https://github.com/mov-cli/mov-cli/issues">Report Bug</a>
     ·
-    <a href="https://github.com/mov-cli/porn-cli/issues">Request Feature</a>
+    <a href="https://github.com/mov-cli/mov-cli/issues">Request Feature</a>
   </p>
 </div>
 
-<!-- TABLE OF CONTENTS -->
-<details>
-  <summary>Table of Contents</summary>
-  <ol>
-    <li>
-      <a href="#about-the-project">About The Project</a>
-    </li>
-    <li>
-      <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
-        <ul>
-          <li><a href="#windows-/-linux">Windows / Linux</a></li>
-          <li><a href="#android">Android</a></li>
-        </ul>
-      </ul>
-    </li>
-    <li><a href="#usage">Usage</a></li>
-    <li><a href="#disclaimer">Disclaimer</a></li>
-    <li><a href="#roadmap">Roadmap</a></li>
-    <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
-    <li><a href="#inspiration">inspiration</a></li>
-  </ol>
-</details>
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
