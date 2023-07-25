@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "porn-cli"
-version = "1.0.5"
+version = "1.0.6"
 description = "An ani-cli like cli tool for porn"
 authors = ["mov-cli <mov-cli@protonmail.com>"]
 license = "GPLv3"
@@ -15,9 +15,6 @@ mov-cli = "^1.4.6"
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
-
-[tool.poetry.scripts]
-porn-cli = "porn_cli.__main__:porncli"
 
 [tool.poetry.urls]
 "Bug Tracker" = "https://github.com/mov-cli/porn-cli/issues"
