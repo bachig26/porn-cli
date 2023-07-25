@@ -18,36 +18,33 @@ class Provider(WebScraper):
     
     def results(self, data: str) -> list:
         req = self.client.get(f"{self.base_url}/?s={data}").text
-        soup = BS(req, "lxml")
+        soup = BS(req, self.scraper)
         items = soup.findAll("div", {"class": "result-item"})
         urls = [items[i].find("a")["href"] for i in range(len(items))]
         title = [items[i].find("img")["alt"] for i in range(len(items))]
         ids = [i for i in range(len(items))]
-        mov_or_tv = ["Hentai" for i in range(len(items))]
+        mov_or_tv = ["TV" for i in range(len(items))]
         return [list(sublist) for sublist in zip(title, urls, ids, mov_or_tv)]
 
     def ask(self, url):
         req = self.client.get(url).text
-        soup = BS(req, "lxml")
+        soup = BS(req, self.scraper)
         episodes = soup.findAll("article", {"class": "item se episodes"})
-        print(episodes)
         episode = int(self.askepisode(len(episodes)))
         episodes = episodes[::-1]
         url = episodes[episode - 1].find("a")["href"]
         return url, episode
 
     def cdn_url(self, url):
-        req = self.client.get(url)
-        soup = BS(req, "lxml")
-        link = soup.find("div", {"id": "option-1"}).find("iframe")["src"]
-        q = self.client.get(link).text
-        regex1 = 'file: "(.*?)"'
-        regex2 = 'source src="(.*?)"'
-        try:
-            url = re.findall(regex1, q)[0]
-        except IndexError:
-            url = re.findall(regex2, q)[0]
-        print(url)
+        req = self.client.get(url, True).text
+        soup = BS(req, self.scraper)
+        id = soup.find("input", {"name": "idpost"})["value"]
+        admin_ajax = self.client.post("https://hentaimama.io/wp-admin/admin-ajax.php", data={"action": "get_player_contents", "a": id}).text
+        p_regex = '\?p=(.*?)."' 
+        p = re.findall(p_regex, admin_ajax)[0]
+        new2 = self.client.get(self.base_url + "/new2.php?p=" + p).text
+        new2_regex = 'file: "(.*?)"'
+        url = re.findall(new2_regex, new2)[0]
         return url
     
     def TV_PandDP(self, t: list, state: str = "d" or "p" or "sd"):

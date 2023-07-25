@@ -20,7 +20,7 @@ class Provider(WebScraper):
     
     def results(self, data: str) -> list:
         req = self.client.get(f"{self.base_url}/?s={data}").text
-        soup = BS(req, "lxml")
+        soup = BS(req, self.scraper)
         items = soup.findAll("article", {"class": "thumb-block"})
         urls = [items[i].find("a")["href"] for i in range(len(items))]
         title = [items[i].find("a")["title"] for i in range(len(items))]
@@ -30,7 +30,7 @@ class Provider(WebScraper):
     
     def cdn_url(self, url):
         req = self.client.get(url).text
-        soup = BS(req, "lxml")
+        soup = BS(req, self.scraper)
         items = soup.find("div", {"class": "responsive-player"})
         try:
             iframe = items.find("iframe")["src"]

@@ -1,5 +1,6 @@
 from bs4 import BeautifulSoup as BS
 from mov_cli.utils.scraper import WebScraper
+from time import sleep
 
 class Provider(WebScraper):
     def __init__(self, base_url):
@@ -15,8 +16,9 @@ class Provider(WebScraper):
         return q.replace(" ", "+")
 
     def results(self, data: str) -> list:
+        self.client.set_cookies({"accessAgeDisclaimerPH": "1"})
         req = self.client.get(f"{self.base_url}/video/search?search={data}")
-        soup = BS(req, "lxml")
+        soup = BS(req, self.scraper)
         items = soup.findAll("li", {"class": "pcVideoListItem"})
         urls = [items[i].find("a")["href"] for i in range(len(items))]
         title = [items[i].find("div", {"class": "usernameWrap"}).find("a").text + " | " + items[i].find("a")["title"] + " | " for i in range(len(items))]
